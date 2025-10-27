@@ -1,1 +1,14 @@
-https://raw.githubusercontent.com/KeenTurbo/Quantumult/refs/heads/main/get-pterodactyl-cookie.js
+# Pterodactyl 面板 (panel.freecloud.ltd) Cookie 获取重写片段
+#
+# 使用方法:
+# 1. 在 [rewrite_remote] 中引用此片段的URL。
+# 2. 在 Quantumult X 中启用此重写。
+# 3. 登录一次 panel.freecloud.ltd 网站。
+# 4. 看到“Cookie获取成功”的通知后，即可禁用此重写。
+
+# 首先，必须将目标域名加入到MitM主机名列表中
+hostname = panel.freecloud.ltd
+
+# 其次，定义重写规则
+# 当访问客户中心主页时，触发脚本来捕获请求头中的Cookie
+^https:\/\/panel\.freecloud\.ltd\/clientarea\.php url script-request-header https://raw.githubusercontent.com/KeenTurbo/Quantumult/refs/heads/main/get-pterodactyl-cookie.js
